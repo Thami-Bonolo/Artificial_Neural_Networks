@@ -1,0 +1,69 @@
+This program contains 6 Files + training.hpp
+
+training.hpp:
+             This file contains training examples. I have saved them in a .hpp file
+             instead of a .txt file because it makes the accessing easier.
+
+Matrix.cpp + Matrix.hpp
+            I have solved the Part 2 of the assignment (Fully connected NeuralNetwork)
+            using matrices. I have gotten the idea from the book: Make Your Own Neural Network
+            by Tariq Rashid. I figured it makes the calculations(Weighted sums, Backprogation, etc) easier.
+            So, I had to implement the matrix class which contains all the function + operations I'll need.
+
+Perceptron.hpp:
+            This is the implementation of the perceptron. I did everything(Header + Source) in one file Since
+            it doesn't contain a lot of functions/methods.
+            One of the changes I have made different from how it is explained in the lecture slides is the loop
+            for training the perceptron. The iterations are done in the main file instead. The Perceptron class just 
+            contains a .train() method that adjusts the weights only once.
+
+NeuralNetwork.cpp + NeuralNetwork.hpp
+            Using the matrix class, here I implemented a one hidden layer fully connected neural network. 
+            When creating an instance of it, you just have to specify the number of Inputs, Hidden and outputs.
+
+main.cpp:
+        This is the Driver file of the program. :)
+
+The program is made in such a way that it runs both part one and two.
+The user choose which part they want to run when the code executes.
+
+Part 1:
+******
+The main creates an object of the perceptron class, passes the data and 
+uses the get/set methods to access/modify the perceptron values.
+
+Attempt to draw the XOR :\
+****************************
+NAND--------->AND---->Output
+OR-------------^
+
+Before implementing the XOR program, I drew the XOR diagram on paper to understand 
+its structure. And I deduced that it uses the NAND, OR and AND(!NAND) gates. Since 
+these gates are linearly separable, I can use each perceptron to represent each gate 
+and together when they are properly connected we can then get the XOR. Even better 
+we only have to train one of the gates between AND and NAND and use .invert() method to 
+get the other. 
+.invert(): inverts all the weights of the perceptron thus making the perceptron return
+           opposite results than those expected.
+
+ONE IMPORTANT POINT TO NOTE
+***************************
+Instead of training my perceptron with 1s and 0s
+I used 1s and -1s. But the user will still input 0s when running the program. I just change to -1 
+before passing it into the perceptron class.
+There's no really a theoritical/practical reason why I did it other than just because
+it made my Job easier.
+
+
+How to run the program(btw this applies to part 2 too :))
+**********************
+In makefile, the first rule is run. And its dependencies are clean and neuralnetwork(Which is 
+the name of the executable for this program). So, by default when make is envoked without arguments
+it will clean, compile and run the program. Otherwise if you wish to compile only you can you "make NeuralNetwork".
+
+Part 2:
+*******
+There's no really much interesting that I did here other than using the matrices. They simplified everything.
+From fully connecting the neural network to making calculations easier.
+
+I HAVE COMMENTED ON SOME OF THE CODE WHERE I THINK IT IS NECESSARY.

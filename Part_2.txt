@@ -1,0 +1,7 @@
+With the neual network trained to give this output: 0.36
+The outputs of the hidden layer neurons 1 and 2 are: 0.763145 0.802184 
+
+Given the values in Question 4 the neural network output: 0.752632
+
+And the Mean Square Error is: 0.15416
+

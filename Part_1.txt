@@ -1,0 +1,15 @@
+Question 1
+**********
+3 perceptrons.
+XOR = NAND * OR; note: * = AND
+They are connected in a way that it is a fully connceted Neural Network with 2 neurons at the hidden layer and one at the output. The two hidden layer neurons are trained to be NAND and OR gates. And the output layer neuron is a AND.
+
+NAND ---------> AND------->Output
+OR --------------^
+
+Question 2
+**********
+I only trained the NAND and OR gate because the AND = !NAND so I added an
+invert() function that inverts the weights of the perceptrons.
+For each perceptron I passed the same set of inputs twice. There are only 4 combinations you can make from two inputs so I trained the algorithm with 8 inputs.
+4 inputs were too few and giving wrong results. The training data can be found in training.hpp file.
